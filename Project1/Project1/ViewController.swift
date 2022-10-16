@@ -29,13 +29,15 @@ class ViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pictures.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
-        cell.textLabel?.text = pictures[indexPath.row]
+        let sortedPictures = pictures.sorted()
+        cell.textLabel?.text = sortedPictures[indexPath.row]
         return cell
     }
     
@@ -43,7 +45,8 @@ class ViewController: UITableViewController {
         // try loading the "Detail" view controller and typecasting it to be DetailViewController
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             // success, set its selectedImage property
-            vc.selectedImage = pictures[indexPath.row]
+            let sortedPictures = pictures.sorted()
+            vc.selectedImage = sortedPictures[indexPath.row]
             
             // push it onto the navigation controller
             navigationController?.pushViewController(vc, animated: true)
