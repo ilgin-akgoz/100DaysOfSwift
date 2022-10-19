@@ -8,13 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet var button1: UIButton!
     @IBOutlet var button2: UIButton!
     @IBOutlet var button3: UIButton!
     var countries = [String]()
     var correctAnswer = 0
     var score = 0
+    var roundCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +41,9 @@ class ViewController: UIViewController {
         
         correctAnswer = Int.random(in: 0...2)
         title = countries[correctAnswer].uppercased() + " - Score: \(score)"
-
+        
     }
-
+    
     @IBAction func buttonTapped(_ sender: UIButton) {
         var title: String
         
@@ -50,14 +51,27 @@ class ViewController: UIViewController {
             title = "Correct"
             score += 1
         } else {
-            title = "Wrong"
+            title = "Wrong! That's the flag of \(countries[sender.tag].uppercased())"
             score -= 1
         }
         
-        let ac = UIAlertController(title: title, message: "Your score is \(score).", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+        roundCount += 1
+        
+        if roundCount < 10 {
+            let ac = UIAlertController(title: title, message: "Your score is \(score).", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+            present(ac, animated: true)
+        } else {
+            endOfGameAlert(round: roundCount)
+        }
+    }
+    
+    func endOfGameAlert(round: Int) {
+        let ac = UIAlertController(title: "Game Over", message: "Final Score: \(score)", preferredStyle: .alert)
+        roundCount = 0
+        score = 0
+        ac.addAction(UIAlertAction(title: "Start New Game", style: .default, handler: askQuestion))
         present(ac, animated: true)
     }
     
 }
-
