@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Score", style: .plain, target: self, action: #selector(showScore))
+        
         button1.layer.borderWidth = 1
         button2.layer.borderWidth = 1
         button3.layer.borderWidth = 1
@@ -72,6 +74,13 @@ class ViewController: UIViewController {
         score = 0
         ac.addAction(UIAlertAction(title: "Start New Game", style: .default, handler: askQuestion))
         present(ac, animated: true)
+    }
+    
+    @objc func showScore() {
+        let vc = UIAlertController(title: "Your score is", message: "\(score)", preferredStyle: .alert)
+        vc.addAction(UIAlertAction(title: "OK", style: .default))
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
     }
     
 }
