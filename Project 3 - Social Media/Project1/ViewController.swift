@@ -52,6 +52,8 @@ class ViewController: UITableViewController {
             
             vc.totalPictures = pictures.count
             
+            vc.imageName = pictures
+            
             // push it onto the navigation controller
             navigationController?.pushViewController(vc, animated: true)
         }
