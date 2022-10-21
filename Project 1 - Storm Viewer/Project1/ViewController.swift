@@ -15,6 +15,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         title = "Storm Viewer"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(recommendToPeople))
         
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
@@ -55,8 +56,12 @@ class ViewController: UITableViewController {
             // push it onto the navigation controller
             navigationController?.pushViewController(vc, animated: true)
         }
-        
-        
+    }
+    
+    @objc func recommendToPeople() {
+        let vc = UIAlertController(title: "Recommend the app to others!", message: "", preferredStyle: .alert)
+        vc.addAction(UIAlertAction(title: "OK", style: .default))
+        present(vc, animated: true)
     }
 
 
