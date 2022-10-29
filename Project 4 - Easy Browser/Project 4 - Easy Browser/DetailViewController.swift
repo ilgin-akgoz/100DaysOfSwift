@@ -25,7 +25,7 @@ class DetailViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
 
         if let urlToLoad = selectedURL {
-            let url = URL(string: urlToLoad)!
+            let url = URL(string: "https://" + urlToLoad)!
             webView.load(URLRequest(url: url))
         }
         
@@ -83,11 +83,10 @@ class DetailViewController: UIViewController, WKNavigationDelegate {
                 if host.contains(website) {
                     decisionHandler(.allow)
                     return
-                } else {
-                    let ac = UIAlertController(title: "", message: "This URL is blocked", preferredStyle: .alert)
-                    ac.addAction(UIAlertAction(title: "OK", style: .default))
-                    present(ac, animated: true)
                 }
+                let ac = UIAlertController(title: "", message: "This URL is blocked", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                present(ac, animated: true)
             }
         }
         decisionHandler(.cancel)
