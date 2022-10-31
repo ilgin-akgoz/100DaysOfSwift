@@ -120,6 +120,10 @@ class ViewController: UITableViewController {
         let range = NSRange(location: 0, length: word.utf16.count)
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
         
+        if word.utf16.count < 3 || title == word {
+            return false
+        }
+        
         return misspelledRange.location == NSNotFound
     }
 }
