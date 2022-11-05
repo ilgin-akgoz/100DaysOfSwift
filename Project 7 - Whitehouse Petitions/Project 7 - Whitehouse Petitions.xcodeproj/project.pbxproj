@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A159F7B2916C2D70017C43B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A159F7A2916C2D70017C43B /* DetailViewController.swift */; };
 		3A73F1FA291541BA00C719C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A73F1F9291541BA00C719C6 /* AppDelegate.swift */; };
 		3A73F1FC291541BA00C719C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A73F1FB291541BA00C719C6 /* SceneDelegate.swift */; };
 		3A73F1FE291541BA00C719C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A73F1FD291541BA00C719C6 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A159F7A2916C2D70017C43B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3A73F1F6291541BA00C719C6 /* Project 7 - Whitehouse Petitions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project 7 - Whitehouse Petitions.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A73F1F9291541BA00C719C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A73F1FB291541BA00C719C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				3A73F1F9291541BA00C719C6 /* AppDelegate.swift */,
 				3A73F1FB291541BA00C719C6 /* SceneDelegate.swift */,
 				3A73F1FD291541BA00C719C6 /* ViewController.swift */,
+				3A159F7A2916C2D70017C43B /* DetailViewController.swift */,
 				3A73F20D291545E800C719C6 /* Petition.swift */,
 				3A73F20F291546DA00C719C6 /* Petitions.swift */,
 				3A73F1FF291541BA00C719C6 /* Main.storyboard */,
@@ -147,6 +150,7 @@
 				3A73F1FE291541BA00C719C6 /* ViewController.swift in Sources */,
 				3A73F20E291545E800C719C6 /* Petition.swift in Sources */,
 				3A73F1FA291541BA00C719C6 /* AppDelegate.swift in Sources */,
+				3A159F7B2916C2D70017C43B /* DetailViewController.swift in Sources */,
 				3A73F1FC291541BA00C719C6 /* SceneDelegate.swift in Sources */,
 				3A73F210291546DA00C719C6 /* Petitions.swift in Sources */,
 			);
