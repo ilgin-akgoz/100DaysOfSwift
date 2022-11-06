@@ -13,6 +13,8 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Credits", style: .done, target: self, action: #selector(showDataOrigin))
+        
         let urlString: String
         
         if navigationController?.tabBarItem.tag == 0 {
@@ -30,6 +32,8 @@ class ViewController: UITableViewController {
             }
         }
         showError()
+        
+        
     }
     
     func parse(json: Data) {
@@ -43,6 +47,12 @@ class ViewController: UITableViewController {
     
     func showError() {
         let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+    }
+    
+    @objc func showDataOrigin() {
+        let ac = UIAlertController(title: "", message: "This data comes from the We The People API of the Whitehouse", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }
