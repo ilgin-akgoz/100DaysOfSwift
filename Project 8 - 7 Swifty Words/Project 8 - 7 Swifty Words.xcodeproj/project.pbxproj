@@ -13,6 +13,7 @@
 		3A8A0285291D3EDF00CD093B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8A0283291D3EDF00CD093B /* Main.storyboard */; };
 		3A8A0287291D3EE000CD093B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A8A0286291D3EE000CD093B /* Assets.xcassets */; };
 		3A8A028A291D3EE000CD093B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8A0288291D3EE000CD093B /* LaunchScreen.storyboard */; };
+		3AF7E1EF29201D2000785F16 /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AF7E1EE29201D2000785F16 /* level1.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3A8A0286291D3EE000CD093B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A8A0289291D3EE000CD093B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A8A028B291D3EE000CD093B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AF7E1EE29201D2000785F16 /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				3A8A0286291D3EE000CD093B /* Assets.xcassets */,
 				3A8A0288291D3EE000CD093B /* LaunchScreen.storyboard */,
 				3A8A028B291D3EE000CD093B /* Info.plist */,
+				3AF7E1EE29201D2000785F16 /* level1.txt */,
 			);
 			path = "Project 8 - 7 Swifty Words";
 			sourceTree = "<group>";
@@ -126,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A8A028A291D3EE000CD093B /* LaunchScreen.storyboard in Resources */,
+				3AF7E1EF29201D2000785F16 /* level1.txt in Resources */,
 				3A8A0287291D3EE000CD093B /* Assets.xcassets in Resources */,
 				3A8A0285291D3EDF00CD093B /* Main.storyboard in Resources */,
 			);
