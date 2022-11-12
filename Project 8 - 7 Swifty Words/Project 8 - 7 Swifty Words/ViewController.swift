@@ -144,6 +144,8 @@ class ViewController: UIViewController {
                 
                 // and also to our letterButtons array
                 letterButtons.append(letterButton)
+                
+                letterButton.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
             }
         }
     }
