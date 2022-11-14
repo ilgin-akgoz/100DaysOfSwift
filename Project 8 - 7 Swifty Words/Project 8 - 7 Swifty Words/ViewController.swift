@@ -139,6 +139,9 @@ class ViewController: UIViewController {
                 let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
                 letterButton.frame = frame
                 
+                letterButton.layer.borderWidth = 1
+                letterButton.layer.borderColor = UIColor.lightGray.cgColor
+                
                 // add it to the buttons view
                 buttonsView.addSubview(letterButton)
                 
