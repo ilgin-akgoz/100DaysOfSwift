@@ -11,13 +11,15 @@ class ViewController: UITableViewController {
     var petitions = [Petition]()
     var filteredPetitions = [Petition]()
     
+    var filterKeyword = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Whitehouse Petitions"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Credits", style: .done, target: self, action: #selector(showDataOrigin))
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .done, target: self, action: #selector(promptForFilteringPetitions))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .done, target: self, action: #selector(filterInput))
         
         let urlString: String
         
@@ -37,7 +39,6 @@ class ViewController: UITableViewController {
         }
         showError()
         
-        
     }
     
     func parse(json: Data) {
@@ -45,6 +46,7 @@ class ViewController: UITableViewController {
         
         if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
             petitions = jsonPetitions.results
+            filterPetitions()
             tableView.reloadData()
         }
     }
@@ -55,22 +57,40 @@ class ViewController: UITableViewController {
         present(ac, animated: true)
     }
     
-    @objc func promptForFilteringPetitions() {
-        let ac = UIAlertController(title: "Filter", message: "Enter your text", preferredStyle: .alert)
+    @objc func filterInput() {
+        let ac = UIAlertController(title: "Filter", message: "", preferredStyle: .alert)
         ac.addTextField()
         
-        let enterAction = UIAlertAction(title: "Enter", style: .default) { [unowned self, ac] _ in
-            let answer = ac.textFields![0]
-            filteredPetitions = petitions.filter { petition in
-                return petition.title.contains(answer.text!) || petition.body.contains(answer.text!)
-            }
-            tableView.reloadData()
-        }
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
+            self?.filterKeyword = ac?.textFields?[0].text ?? ""
+            self?.filterPetitions()
+            self?.tableView.reloadData()
+        })
         
-        ac.addAction(enterAction)
         present(ac, animated: true)
+        
     }
     
+    func filterPetitions() {
+        if filterKeyword.isEmpty {
+            filteredPetitions = petitions
+            return
+        }
+
+        DispatchQueue.global().async {
+            self.filteredPetitions = self.petitions.filter() { petition in
+                if let _ = petition.title.range(of: self.filterKeyword, options: .caseInsensitive) {
+                    return true
+                }
+                if let _ =  petition.body.range(of: self.filterKeyword, options: .caseInsensitive) {
+                    return true
+                }
+                return false
+            }
+        }
+    }
+        
     @objc func showDataOrigin() {
         let ac = UIAlertController(title: "", message: "This data comes from the We The People API of the Whitehouse.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
@@ -78,19 +98,12 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredPetitions.isEmpty ? petitions.count : filteredPetitions.count
+        return filteredPetitions.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let petition: Petition
-        
-        if filteredPetitions.isEmpty {
-            petition = petitions[indexPath.row]
-        }
-        else {
-            petition = filteredPetitions[indexPath.row]
-        }
+        let petition = filteredPetitions[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
         content.text = petition.title
@@ -102,12 +115,9 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController()
-        vc.detailItem = petitions[indexPath.row]
+        vc.detailItem = filteredPetitions[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    
-
-
 }
 
