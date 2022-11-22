@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     var usedLetters = [String]()
     var wrongAnswers = 0
     var currentWord = ""
+    var score = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +35,13 @@ class ViewController: UIViewController {
             }
         }
         
-        title = "\(promptWord)"
+        title = "\(promptWord) Score: \(score)"
     }
     
-    func loadWords() {
+   func loadWords() {
         if let wordsFileURL = Bundle.main.url(forResource: "words", withExtension: "txt") {
             if let wordsContents = try? String(contentsOf: wordsFileURL) {
-                var lines = wordsContents.components(separatedBy: "\n")
+                let lines = wordsContents.components(separatedBy: "\n")
                 
                 if let randomWord = lines.randomElement() {
                     currentWord = randomWord
@@ -51,7 +52,24 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func getLetterFromUser() {
+    func score(answer: String) {
+        if wrongAnswers == 7 {
+            let ac = UIAlertController(title: "Game over", message: "You have lost", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+            
+            return
+        }
+        
+        if !currentWord.contains(answer) {
+            score -= 1
+            wrongAnswers += 1
+        } else {
+            score += 1
+        }
+    }
+    
+   @objc func getLetterFromUser() {
         let ac = UIAlertController(title: "Enter a letter...", message: nil, preferredStyle: .alert)
         ac.addTextField()
         
@@ -65,6 +83,7 @@ class ViewController: UIViewController {
             }
             
             let answerUppercased = answer.uppercased()
+            self?.score(answer: answerUppercased)
             self?.usedLetters.append(answerUppercased)
         }
         checkForLetter(word: currentWord)
