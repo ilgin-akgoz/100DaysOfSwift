@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AB9F3D0292E6746003BDF44 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB9F3CF292E6746003BDF44 /* Person.swift */; };
 		3ACFEE89292D23B200B41DD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFEE88292D23B200B41DD8 /* AppDelegate.swift */; };
 		3ACFEE8B292D23B200B41DD8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFEE8A292D23B200B41DD8 /* SceneDelegate.swift */; };
 		3ACFEE8D292D23B200B41DD8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFEE8C292D23B200B41DD8 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3AB9F3CF292E6746003BDF44 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		3ACFEE85292D23B200B41DD8 /* Project 10 - Names to Faces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project 10 - Names to Faces.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ACFEE88292D23B200B41DD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ACFEE8A292D23B200B41DD8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				3ACFEE88292D23B200B41DD8 /* AppDelegate.swift */,
 				3ACFEE8A292D23B200B41DD8 /* SceneDelegate.swift */,
 				3ACFEE8C292D23B200B41DD8 /* ViewController.swift */,
+				3AB9F3CF292E6746003BDF44 /* Person.swift */,
 				3ACFEE8E292D23B200B41DD8 /* Main.storyboard */,
 				3ACFEE9C292D259400B41DD8 /* PersonCell.swift */,
 				3ACFEE91292D23B300B41DD8 /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AB9F3D0292E6746003BDF44 /* Person.swift in Sources */,
 				3ACFEE8D292D23B200B41DD8 /* ViewController.swift in Sources */,
 				3ACFEE89292D23B200B41DD8 /* AppDelegate.swift in Sources */,
 				3ACFEE9D292D259400B41DD8 /* PersonCell.swift in Sources */,
