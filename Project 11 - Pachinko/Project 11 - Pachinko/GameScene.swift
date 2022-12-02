@@ -92,10 +92,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     guard let randomBall = ballContent.randomElement() else { return }
                     let ball = SKSpriteNode(imageNamed: randomBall)
                     ball.name = "ball"
+                    ball.position = CGPoint(x: location.x, y: 700)
                     ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
                     ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
                     ball.physicsBody?.restitution = 0.4 // values are from 0 to 1
-                    ball.position = location
                     addChild(ball)
                 }
             }
