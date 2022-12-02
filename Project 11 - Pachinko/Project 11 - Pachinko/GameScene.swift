@@ -10,6 +10,7 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabel: SKLabelNode!
     var editLabel: SKLabelNode!
+    var ballContent = [String]()
     
     var score = 0 {
         didSet {
@@ -78,7 +79,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                     addChild(box)
                 } else {
-                    let ball = SKSpriteNode(imageNamed: "ballRed")
+                    let fm = FileManager.default
+                    let path = Bundle.main.resourcePath!
+                    let contents = try! fm.contentsOfDirectory(atPath: path)
+
+                    for content in contents {
+                        if content.hasPrefix("ball") {
+                            ballContent.append(content)
+                        }
+                    }
+                    
+                    guard let randomBall = ballContent.randomElement() else { return }
+                    let ball = SKSpriteNode(imageNamed: randomBall)
                     ball.name = "ball"
                     ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
                     ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
