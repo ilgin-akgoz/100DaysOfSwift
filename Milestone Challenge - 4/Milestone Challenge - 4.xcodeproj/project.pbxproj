@@ -15,6 +15,7 @@
 		3A4C9992294781DB00DDDF3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A4C9990294781DB00DDDF3D /* LaunchScreen.storyboard */; };
 		3A4C999A294782C300DDDF3D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C9999294782C300DDDF3D /* Image.swift */; };
 		3A4C999C2947874D00DDDF3D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C999B2947874D00DDDF3D /* DetailViewController.swift */; };
+		3A4C99A22947911700DDDF3D /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C99A12947911600DDDF3D /* ImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3A4C9993294781DB00DDDF3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A4C9999294782C300DDDF3D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		3A4C999B2947874D00DDDF3D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		3A4C99A12947911600DDDF3D /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				3A4C9989294781DB00DDDF3D /* ViewController.swift */,
 				3A4C999B2947874D00DDDF3D /* DetailViewController.swift */,
 				3A4C9999294782C300DDDF3D /* Image.swift */,
+				3A4C99A12947911600DDDF3D /* ImageCell.swift */,
 				3A4C998B294781DB00DDDF3D /* Main.storyboard */,
 				3A4C998E294781DB00DDDF3D /* Assets.xcassets */,
 				3A4C9990294781DB00DDDF3D /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 				3A4C999C2947874D00DDDF3D /* DetailViewController.swift in Sources */,
 				3A4C9986294781DB00DDDF3D /* AppDelegate.swift in Sources */,
 				3A4C9988294781DB00DDDF3D /* SceneDelegate.swift in Sources */,
+				3A4C99A22947911700DDDF3D /* ImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
