@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UITableViewController {
     
     var pictures = [String]()
+    var viewCount = [String: Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,9 @@ class ViewController: UITableViewController {
         
         performSelector(inBackground: #selector(loadImages), with: nil)
         tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        
+        let defaults = UserDefaults.standard
+        viewCount = defaults.object(forKey: "viewCount") as? [String: Int] ?? [String: Int]()
 
     }
     
@@ -44,6 +48,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
         cell.textLabel?.text = pictures[indexPath.row]
+        cell.detailTextLabel?.text = "Views: \(viewCount[pictures[indexPath.row], default: 0])"
         return cell
     }
     
@@ -57,9 +62,17 @@ class ViewController: UITableViewController {
             
             vc.totalPictures = pictures.count
             
+            viewCount[pictures[indexPath.row], default: 0] += 1
+            save()
+            
             // push it onto the navigation controller
             navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    func save() {
+        let defaults = UserDefaults.standard
+        defaults.set(viewCount, forKey: "viewCount")
     }
     
     @objc func recommendToPeople() {
@@ -67,6 +80,8 @@ class ViewController: UITableViewController {
         vc.addAction(UIAlertAction(title: "OK", style: .default))
         present(vc, animated: true)
     }
+    
+    
 
 
 }
