@@ -69,7 +69,11 @@ class ViewController: UIViewController {
             ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
             present(ac, animated: true)
         } else {
-            endOfGameAlert()
+            if score > saveScore.values.first! {
+                beatPreviousScoreAlert()
+            } else {
+                endOfGameAlert()
+            }
         }
     }
     
@@ -82,14 +86,6 @@ class ViewController: UIViewController {
         let ac = UIAlertController(title: "Game Over", message: "Final Score: \(score)", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Start New Game", style: .default, handler: askQuestion))
         
-        if score > saveScore.values.first! {
-            beatPreviousScoreAlert()
-            return
-        }
-        
-        saveScore["saveScore", default: 0] += score
-        save()
-        
         roundCount = 0
         score = 0
         
@@ -97,10 +93,10 @@ class ViewController: UIViewController {
     }
     
     func beatPreviousScoreAlert() {
-        let ac = UIAlertController(title: "Congrats", message: "You have beaten the previous high score!", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Congrats", message: "You have beaten the previous highest score!\nNew Highest Score: \(score)\nPrevious Highest Score: \(saveScore.values.first!)", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Start New Game", style: .default, handler: askQuestion))
         
-        saveScore["saveScore", default: 0] += score
+        saveScore["saveScore"] = score
         save()
         
         roundCount = 0
