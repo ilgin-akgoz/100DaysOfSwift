@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     var score = 0
     var roundCount = 0
     
+    var saveScore = [String: Int]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,9 @@ class ViewController: UIViewController {
         button3.layer.borderColor = UIColor.lightGray.cgColor
         
         askQuestion(action: nil)
+        
+        let defaults = UserDefaults.standard
+        saveScore = defaults.object(forKey: "saveScore") as? [String: Int] ?? [String: Int]()
     }
     
     func askQuestion(action: UIAlertAction!) {
@@ -64,15 +69,43 @@ class ViewController: UIViewController {
             ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
             present(ac, animated: true)
         } else {
-            endOfGameAlert(round: roundCount)
+            endOfGameAlert()
         }
     }
     
-    func endOfGameAlert(round: Int) {
+    func save() {
+        let defaults = UserDefaults.standard
+        defaults.set(saveScore, forKey: "saveScore")
+    }
+    
+    func endOfGameAlert() {
         let ac = UIAlertController(title: "Game Over", message: "Final Score: \(score)", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Start New Game", style: .default, handler: askQuestion))
+        
+        if score > saveScore.values.first! {
+            beatPreviousScoreAlert()
+            return
+        }
+        
+        saveScore["saveScore", default: 0] += score
+        save()
+        
         roundCount = 0
         score = 0
+        
+        present(ac, animated: true)
+    }
+    
+    func beatPreviousScoreAlert() {
+        let ac = UIAlertController(title: "Congrats", message: "You have beaten the previous high score!", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Start New Game", style: .default, handler: askQuestion))
+        
+        saveScore["saveScore", default: 0] += score
+        save()
+        
+        roundCount = 0
+        score = 0
+        
         present(ac, animated: true)
     }
     
