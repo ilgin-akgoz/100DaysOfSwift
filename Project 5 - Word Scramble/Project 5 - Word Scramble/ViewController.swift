@@ -28,14 +28,31 @@ class ViewController: UITableViewController {
             allWords = ["silkworm"]
         }
         
-        startGame()
+        // day 49 - challenge 3
+        let defaults = UserDefaults.standard
         
+        if let saveCurrentWord = defaults.data(forKey: "currentWord"),
+           let saveUsedWords = defaults.data(forKey: "usedWord") {
+            
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                title = try jsonDecoder.decode(String.self, from: saveCurrentWord)
+                usedWords = try jsonDecoder.decode([String].self, from: saveUsedWords)
+            } catch {
+                print("Error")
+            }
+        } else {
+            startGame()
+        }
     }
     
     @objc func startGame() {
         title = allWords.randomElement()
         usedWords.removeAll(keepingCapacity: true)
         tableView.reloadData()
+        
+        save()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,6 +77,7 @@ class ViewController: UITableViewController {
                 if isReal(word: lowerAnswer) {
                     usedWords.insert(lowerAnswer, at: 0)
                     
+                    
                     let indexPath = IndexPath(row: 0, section: 0)
                     tableView.insertRows(at: [indexPath], with: .automatic)
                     
@@ -75,6 +93,22 @@ class ViewController: UITableViewController {
             showErrorMessage(errorTitle: "Word not possible", errorMessage: "You can't spell that word from \(title)")
         }
         
+        save()
+        
+    }
+    
+    // day 49 - challenge 3
+    func save() {
+        let jsonEncoder = JSONEncoder()
+        let defaults = UserDefaults.standard
+        
+        if let saveCurrentWord = try? jsonEncoder.encode(title),
+           let saveUsedWords = try? jsonEncoder.encode(usedWords) {
+            defaults.set(saveCurrentWord, forKey: "currentWord")
+            defaults.set(saveUsedWords, forKey: "usedWord")
+        } else {
+            print("Could not save")
+        }
     }
     
     func showErrorMessage(errorTitle: String, errorMessage: String) {
