@@ -49,10 +49,9 @@ class ViewController: UITableViewController {
     
     @objc func startGame() {
         title = allWords.randomElement()
+        save()
         usedWords.removeAll(keepingCapacity: true)
         tableView.reloadData()
-        
-        save()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,7 +75,7 @@ class ViewController: UITableViewController {
             if isOriginal(word: lowerAnswer) {
                 if isReal(word: lowerAnswer) {
                     usedWords.insert(lowerAnswer, at: 0)
-                    
+                    save()
                     
                     let indexPath = IndexPath(row: 0, section: 0)
                     tableView.insertRows(at: [indexPath], with: .automatic)
@@ -92,9 +91,6 @@ class ViewController: UITableViewController {
             guard let title = title?.lowercased() else { return }
             showErrorMessage(errorTitle: "Word not possible", errorMessage: "You can't spell that word from \(title)")
         }
-        
-        save()
-        
     }
     
     // day 49 - challenge 3
