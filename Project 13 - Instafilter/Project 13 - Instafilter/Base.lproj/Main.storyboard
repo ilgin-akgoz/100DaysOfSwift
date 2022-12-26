@@ -32,7 +32,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFV-ZF-gi7">
-                                <rect key="frame" x="37" y="554" width="70" height="21"/>
+                                <rect key="frame" x="37" y="554.66666666666663" width="70" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9yP-Uc-g1b"/>
                                 </constraints>
@@ -47,7 +47,7 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bn5-Fs-Of8">
-                                <rect key="frame" x="37" y="606" width="126" height="35"/>
+                                <rect key="frame" x="36.999999999999993" y="606.66666666666663" width="125.33333333333331" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Change Filter"/>
                                 <connections>
@@ -84,6 +84,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="8uy-VE-EoO"/>
                     <connections>
+                        <outlet property="filterButton" destination="Bn5-Fs-Of8" id="plG-Qo-Z4n"/>
                         <outlet property="imageView" destination="1vg-XZ-ZBh" id="U1w-Po-y8d"/>
                         <outlet property="intensity" destination="dP7-nV-I93" id="xO9-6n-HUe"/>
                     </connections>

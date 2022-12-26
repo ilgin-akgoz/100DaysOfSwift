@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var intensity: UISlider!
+    @IBOutlet var filterButton: UIButton!
     var currentImage: UIImage!
     var context: CIContext!
     var currentFilter: CIFilter!
@@ -50,6 +51,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // safely read the alert action's title
         guard let actionTitle = action.title else { return }
+        
+        filterButton.setTitle(actionTitle, for: .normal)
         
         currentFilter = CIFilter(name: actionTitle)
         
