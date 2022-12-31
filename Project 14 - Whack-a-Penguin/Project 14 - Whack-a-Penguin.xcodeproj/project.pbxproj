@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A026E72295FB9A800FFDA7E /* gameOver.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3A026E71295FB9A500FFDA7E /* gameOver.m4a */; };
 		3A6BA86A295C872A0072428F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BA869295C872A0072428F /* AppDelegate.swift */; };
 		3A6BA86C295C872A0072428F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A6BA86B295C872A0072428F /* GameScene.sks */; };
 		3A6BA870295C872A0072428F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BA86F295C872A0072428F /* GameScene.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A026E71295FB9A500FFDA7E /* gameOver.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameOver.m4a; sourceTree = "<group>"; };
 		3A6BA866295C872A0072428F /* Project 14 - Whack-a-Penguin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project 14 - Whack-a-Penguin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A6BA869295C872A0072428F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A6BA86B295C872A0072428F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		3A6BA880295C87E70072428F /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				3A026E71295FB9A500FFDA7E /* gameOver.m4a */,
 				3A6BA881295C87E70072428F /* whackBad.caf */,
 				3A6BA882295C87E70072428F /* whack.caf */,
 				3A6BA883295C87E70072428F /* gameOver@2x.png */,
@@ -172,6 +175,7 @@
 				3A6BA88C295C87E70072428F /* penguinEvil@2x.png in Resources */,
 				3A6BA88B295C87E70072428F /* gameOver@2x.png in Resources */,
 				3A6BA88E295C87E70072428F /* penguinGood@2x.png in Resources */,
+				3A026E72295FB9A800FFDA7E /* gameOver.m4a in Resources */,
 				3A6BA88A295C87E70072428F /* whack.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
