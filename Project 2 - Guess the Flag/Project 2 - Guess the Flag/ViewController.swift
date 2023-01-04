@@ -41,7 +41,12 @@ class ViewController: UIViewController {
     }
     
     func askQuestion(action: UIAlertAction!) {
+        button1.transform = .identity
+        button2.transform = .identity
+        button3.transform = .identity
+        
         countries.shuffle()
+        
         button1.setImage(UIImage(named: countries[0]), for: .normal)
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
@@ -53,6 +58,11 @@ class ViewController: UIViewController {
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         var title: String
+        
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [],
+                       animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        })
         
         if sender.tag == correctAnswer {
             title = "Correct"
