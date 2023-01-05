@@ -20,6 +20,9 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNB-LN-bdg">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="UNj-Re-o75"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -32,10 +35,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NYp-kW-DRv"/>
+                    <connections>
+                        <outlet property="mapView" destination="xNB-LN-bdg" id="hgS-np-gEK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985.49618320610682" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="749" y="-27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="igB-9E-cue">
