@@ -31,7 +31,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let identifier = "Capital"
         
         // 3
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
         
         if annotationView == nil {
             // 4
@@ -46,6 +46,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
             annotationView?.annotation = annotation
         }
         
+        annotationView?.markerTintColor = UIColor.purple
         return annotationView
     }
     
