@@ -21,6 +21,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let washington = Capital(title: "Washington DC", coordinate: CLLocationCoordinate2D(latitude: 38.895111, longitude: -77.036667), info: "Named after George himself.")
         
         mapView.addAnnotations([london, oslo, paris, rome, washington])
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map Type", style: .plain, target: self, action: #selector(chooseMapType))
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -60,6 +62,38 @@ class ViewController: UIViewController, MKMapViewDelegate {
         present(ac, animated: true)
     }
 
+    @objc func chooseMapType() {
+        let ac = UIAlertController(title: "Choose map type", message: "", preferredStyle: .actionSheet)
+        
+        ac.addAction(UIAlertAction(title: "Standard", style: .default, handler: changeMapType))
+        ac.addAction(UIAlertAction(title: "Satellite", style: .default, handler: changeMapType))
+        ac.addAction(UIAlertAction(title: "Hybrid", style: .default, handler: changeMapType))
+        ac.addAction(UIAlertAction(title: "Hybrid Flyover", style: .default, handler: changeMapType))
+        ac.addAction(UIAlertAction(title: "Satellite Flyover", style: .default, handler: changeMapType))
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(ac, animated: true)
+    }
+                     
+    func changeMapType(action: UIAlertAction) {
+        guard let title = action.title else { return }
+        
+        switch title {
+        case "Standard":
+            mapView.mapType = .standard
+        case "Satellite":
+            mapView.mapType = .satellite
+        case "Hybrid":
+            mapView.mapType = .hybrid
+        case "Hybrid Flyover":
+            mapView.mapType = .hybridFlyover
+        case "Satellite Flyover":
+            mapView.mapType = .satelliteFlyover
+        default:
+            mapView.mapType = .standard
+        }
+    }
 
 }
 
