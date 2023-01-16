@@ -14,6 +14,7 @@
 		3A4C87FD296767FB00122987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A4C87FC296767FB00122987 /* Assets.xcassets */; };
 		3A4C8800296767FB00122987 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A4C87FE296767FB00122987 /* LaunchScreen.storyboard */; };
 		3A4C8808296769F000122987 /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C8807296769F000122987 /* Capital.swift */; };
+		3A7302B12975DBC7000DAC1C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7302B02975DBC7000DAC1C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3A4C87FF296767FB00122987 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A4C8801296767FB00122987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A4C8807296769F000122987 /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
+		3A7302B02975DBC7000DAC1C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		3A4C87F2296767FB00122987 /* Project 16 - Capital Cities */ = {
 			isa = PBXGroup;
 			children = (
+				3A7302B02975DBC7000DAC1C /* DetailViewController.swift */,
 				3A4C8807296769F000122987 /* Capital.swift */,
 				3A4C87F3296767FB00122987 /* AppDelegate.swift */,
 				3A4C87F5296767FB00122987 /* SceneDelegate.swift */,
@@ -143,6 +146,7 @@
 			files = (
 				3A4C87F8296767FB00122987 /* ViewController.swift in Sources */,
 				3A4C87F4296767FB00122987 /* AppDelegate.swift in Sources */,
+				3A7302B12975DBC7000DAC1C /* DetailViewController.swift in Sources */,
 				3A4C8808296769F000122987 /* Capital.swift in Sources */,
 				3A4C87F6296767FB00122987 /* SceneDelegate.swift in Sources */,
 			);

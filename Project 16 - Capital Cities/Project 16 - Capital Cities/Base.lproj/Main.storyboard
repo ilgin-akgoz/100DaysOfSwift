@@ -43,6 +43,37 @@
             </objects>
             <point key="canvasLocation" x="762.59541984732823" y="-27.464788732394368"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="DXm-DP-fD3">
+            <objects>
+                <viewController storyboardIdentifier="Web" id="fMk-AY-dn2" customClass="DetailViewController" customModule="Project_16___Capital_Cities" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ETI-7t-Us5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="baS-r4-pil">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HHN-Q1-Lei"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="baS-r4-pil" firstAttribute="top" secondItem="HHN-Q1-Lei" secondAttribute="top" id="PzX-i2-ltM"/>
+                            <constraint firstItem="baS-r4-pil" firstAttribute="centerX" secondItem="ETI-7t-Us5" secondAttribute="centerX" id="SjG-92-oQT"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="baS-r4-pil" secondAttribute="bottom" constant="-34" id="mzX-40-gqW"/>
+                            <constraint firstItem="baS-r4-pil" firstAttribute="leading" secondItem="HHN-Q1-Lei" secondAttribute="leading" id="uLD-DQ-u28"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4vw-zi-odb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1509.1603053435115" y="-11.267605633802818"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="igB-9E-cue">
             <objects>
