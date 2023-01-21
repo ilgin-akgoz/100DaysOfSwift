@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "EDEB7175-B83B-4F6C-BB9F-69339D2AAC92"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E291E5AB-B0DD-4741-A3A2-30A87893F1BC"
+            shouldBeEnabled = "Yes"
+            condition = "answer.count &gt;= 6"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project 5 - Word Scramble/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "submit(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
